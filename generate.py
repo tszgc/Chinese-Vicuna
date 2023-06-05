@@ -102,6 +102,7 @@ def evaluate(
     repetition_penalty=2.0,
     **kwargs,
 ):
+    print('execute evaluate')
     inputs = tokenizer(input, return_tensors="pt")
     input_ids = inputs["input_ids"].to(device)
     generation_config = GenerationConfig(
@@ -131,4 +132,8 @@ def evaluate(
 
 
 if __name__ == "__main__":
-
+    print('开始测试1')
+    input = "###-TASK-A-A-A, no matter feasibility, answer only one word, 'positive' or 'negative', by this sentence:Blockware\u2019s team expects Bitcoin\u2019s adoption rate to be faster than previous technologies, but believes it's still in early-stage growth.\\xa0";
+    output = evaluate(input)
+    print('>>>>>>>>>>>>>>>>>')
+    print(output)
